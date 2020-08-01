@@ -22,7 +22,7 @@ class TaskView(View):
 
         if form.is_valid():
             new_task = form.save()
-            return JsonResponse({'task': model_to_dict(form)}, status=200)
+            return JsonResponse({'task': model_to_dict(new_task)}, status=200)
 
         return redirect('task_list_url')
 
