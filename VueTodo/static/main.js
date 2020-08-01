@@ -27,5 +27,18 @@ var app = new Vue({
             .then(function(response){
                 vm.tasks = response.data.tasks;
             })
+    },
+    methods: {
+        createTask(){
+            var vm = this;
+            var formData = new FormData();
+            formData.append('title', this.task);
+
+            sendRequest('', 'post', formData)
+                .then(function(response){
+                    vm.tasks.push(response.data.task);
+                    vm.task = '';
+                })
+        }
     }
 })
