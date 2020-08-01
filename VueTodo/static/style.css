@@ -1,0 +1,16 @@
+body {
+    background: #002137;
+    color: black;
+}
+
+#app > form {
+    color: #FFF8DC;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.btn {
+    background: #b6e1fc;
+}

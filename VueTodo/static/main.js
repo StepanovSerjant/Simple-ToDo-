@@ -1,7 +1,7 @@
 function sendRequest (url, method, data){
     var req = axios({
-        url: url,
         method: method,
+        url: url,
         data: data,
         xsrfCookieName: 'csrftoken',
         xsrfHeaderName: 'X-CSRFToken',
@@ -38,6 +38,14 @@ var app = new Vue({
                 .then(function(response){
                     vm.tasks.push(response.data.task);
                     vm.task = '';
+                })
+        },
+        completeTask(id, index){
+            var vm = this;
+            sendRequest('' + id + '/complete/', 'post')
+                .then(function(response){
+                    vm.tasks.splice(index, 1);
+                    vm.tasks.push(response.data.task);
                 })
         }
     }
