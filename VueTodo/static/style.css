@@ -7,10 +7,24 @@ body {
     color: #FFF8DC;
 }
 
+input.form-control {
+    background: #b6e1fc;
+}
+
+input.form-control:focus {
+    background: #54b9f7;
+    border-style: none;
+}
+
+div.card-body {
+    background: #dede8c;
+}
+
 .completed {
     text-decoration: line-through;
 }
 
 .btn {
-    background: #b6e1fc;
+    background: #8673a1;
+    color: #002137;
 }
