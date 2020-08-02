@@ -28,6 +28,20 @@ var app = new Vue({
                 vm.tasks = response.data.tasks;
             })
     },
+    computed: {
+        taskList(){
+            function compare(a, b){
+                if (a.completed > b.completed){
+                    return 1;
+                }
+                if (a.completed < b.completed){
+                    return -1;
+                }
+                return 0;
+            }
+            return this.tasks.sort(compare)
+        }
+    },
     methods: {
         createTask(){
             var vm = this;
