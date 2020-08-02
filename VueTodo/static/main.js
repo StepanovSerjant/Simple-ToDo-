@@ -61,6 +61,13 @@ var app = new Vue({
                     vm.tasks.splice(index, 1);
                     vm.tasks.push(response.data.task);
                 })
+        },
+        deleteTask(id, index){
+            var vm = this;
+            sendRequest('' + id + '/delete/', 'post')
+                .then(function(response){
+                    vm.tasks.splice(index, 1);
+            })
         }
     }
 })

@@ -13,8 +13,10 @@ class TaskView(View):
 
     def get(self, request):
         tasks = list(Task.objects.values())
+
         if request.is_ajax():
             return JsonResponse({'tasks': tasks}, status=200)
+            
         return render(request, 'tasklist/list.html')
 
     def post(self, request):
@@ -34,3 +36,11 @@ class TaskComplete(View):
         task.completed = True
         task.save()
         return JsonResponse({'task': model_to_dict(task)}, status=200)
+
+
+class TaskDelete(View):
+
+    def post(self, request, id):
+        task = Task.objects.get(id=id)
+        task.delete()
+        return JsonResponse({'result': 'ok'}, status=200)
