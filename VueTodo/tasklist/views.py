@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic import View
-from django.shortcuts import redirect
 
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
